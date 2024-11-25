@@ -5,7 +5,7 @@ from time import sleep
 
 # Set up the serial connection
 ser = serial.Serial(
-    port='/dev/ttyUSB1',  # Replace with your port name
+    port='/dev/rsx-um7',  # Replace with your port name
     baudrate=19200,       # Set the baud rate to 19200
     bytesize=serial.EIGHTBITS,
     parity=serial.PARITY_NONE,
@@ -117,6 +117,8 @@ def user_input_thread():
             set_motor_max_speed(speed_1000)
         if user_input == '4':
             set_pwm_mode(PWM_IND)
+        if user_input == '5':
+            set_pwm_mode(PWM_MIX)
         elif user_input.lower() == 'exit':
             ser.close()
             print("Serial connection closed.")
